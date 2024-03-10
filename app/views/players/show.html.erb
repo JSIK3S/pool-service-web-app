@@ -1,1 +1,6 @@
-<h1><%= @player.ally_code %></h1>
+<h1>Player Name Here</h1>
+
+<section>
+  <h2><%= @player.ally_code %></h2>
+  <%= link_to "Remove Player", player_path(@player), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+</section>

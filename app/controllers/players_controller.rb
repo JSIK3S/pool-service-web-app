@@ -20,6 +20,12 @@ class PlayersController < ApplicationController
     redirect_to @player
   end
 
+  def destroy
+    @player = Player.find(params[:id])
+    @player.destroy
+    redirect_to players_url, status: :see_other
+  end
+
   private
 
   def player_params
