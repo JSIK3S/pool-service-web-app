@@ -16,14 +16,17 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.save
-    redirect_to @player
+    if @player.save
+      redirect_to @player, notice: "Player add to the Guild!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
-    redirect_to players_url, status: :see_other
+    redirect_to players_url, status: :see_other, alert: "Player has been removed!"
   end
 
   private
