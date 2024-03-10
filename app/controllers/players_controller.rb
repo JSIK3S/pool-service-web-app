@@ -10,6 +10,23 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def new
+    @player = Player.new
+  end
+
+  def create
+    @player = Player.new(player_params)
+    @player.save
+    redirect_to @player
+  end
+
+  private
+
+  def player_params
+    params.require(:player).
+      permit(:ally_code)
+  end
+
   # Ai generated code for the SWGOH Api call:
   # def show
   #   ally_code = params[:ally_code]

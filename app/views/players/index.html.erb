@@ -1,6 +1,13 @@
-<h1>List of Guild Players</h1>
-<ul>
-  <% @players.each do |player| %>
-    <li><%= link_to player.ally_code, player %></li>
-  <% end %>
-</ul>
+<h1>Main Page - Hello Boyos</h1>
+<h2>Jar Jar's Above Ground Pool</h2>
+<section>
+  <h3>Players</h3>
+  <%= link_to "Add Player", new_player_path %>
+</section>
+<section>
+  <ul>
+    <% @players.each do |player| %>
+      <li><%= link_to player.ally_code, player %></li>
+    <% end %>
+  </ul>
+</section>

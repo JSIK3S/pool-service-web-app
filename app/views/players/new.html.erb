@@ -1,0 +1,9 @@
+<h1>Add New Player to the Guild:</h1>
+
+<%= form_with(model: @player) do |f| %>
+
+  <%= f.label :ally_code %>
+  <%= f.text_field :ally_code, autofocus: true %>
+
+  <%= f.submit %>
+<% end %>
