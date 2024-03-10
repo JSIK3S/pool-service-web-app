@@ -1,5 +1,27 @@
+require 'net/http'
+require 'json'
+
 class PlayersController < ApplicationController
   def index
     @players = Player.all
   end
+
+  def show
+    @player = Player.find(params[:id])
+  end
+
+  # Ai generated code for the SWGOH Api call:
+  # def show
+  #   ally_code = params[:ally_code]
+  #   uri = URI("https://swgoh.gg/api/player/#{ally_code}/")
+  #   response = Net::HTTP.get(uri)
+  #   json_response = JSON.parse(response)
+  #
+  #   if json_response['error']
+  #     flash[:alert] = "Player not found: #{json_response['error']}"
+  #     redirect_to root_path
+  #   else
+  #     @player = json_response
+  #   end
+  # end
 end

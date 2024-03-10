@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PoolServiceWebApp</title>
+    <title>Jar Jar's Pool Service</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,13 @@
   </head>
 
   <body>
+
+  <header>
+    <nav>
+      <%= link_to("All Players", players_path) %>
+    </nav>
+  </header>
+
     <%= yield %>
   </body>
 </html>
