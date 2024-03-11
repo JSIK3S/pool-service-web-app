@@ -7,7 +7,9 @@
 <section>
   <ul>
     <% @players.each do |player| %>
+      <% data = player.get_player_data(player.ally_code) %>
       <li><%= link_to player.ally_code, player %></li>
+      <li><%= data['data']['name'] %></li>
     <% end %>
   </ul>
 </section>

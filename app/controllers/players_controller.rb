@@ -29,6 +29,7 @@ class PlayersController < ApplicationController
     redirect_to players_url, status: :see_other, alert: "Player has been removed!"
   end
 
+
   private
 
   def player_params
