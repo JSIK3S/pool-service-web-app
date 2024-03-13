@@ -8,8 +8,11 @@
   <ul>
     <% @players.each do |player| %>
       <% data = player.get_player_data(player.ally_code) %>
-      <li><%= link_to player.ally_code, player %></li>
+      <%= link_to player.ally_code, player %>
+      <img src="<%= data['data']['portrait_image'] %>" alt="">
       <li><%= data['data']['name'] %></li>
+      <li><%= data['data']['galactic_power'] %></li>
+      <li><%= data['data']['arena_leader_base_id'] %></li>
     <% end %>
   </ul>
 </section>
