@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Jar Jar's Pool Service</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Jar Jar's Pool Service</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-
-  <header>
-    <nav>
+<body class="bg-blue-200 text-red-500">
+<header>
+  <nav>
+    <button class="rounded shadow p-2 m-4 bg-green-100">
       <%= link_to("Home", players_path) %>
-    </nav>
-  </header>
-    <div>
-      <%= render "layouts/flash" %>
-      <%= yield %>
-    </div>
-  </body>
+    </button>
+    <button class="rounded shadow p-2 m-4 bg-green-100">
+      <%= link_to "Add Player", new_player_path %>
+    </button>
+  </nav>
+</header>
+<main class="flex justify-center">
+  <%= render "layouts/flash" %>
+  <%= yield %>
+</main>
+</body>
 </html>

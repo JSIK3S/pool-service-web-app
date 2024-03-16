@@ -1,18 +1,20 @@
-<h1>Main Page - Hello Boyos</h1>
-<h2>Jar Jar's Above Ground Pool</h2>
-<section>
-  <h3>Players</h3>
-  <%= link_to "Add Player", new_player_path %>
-</section>
-<section>
-  <ul>
-    <% @players.each do |player| %>
-      <% data = player.get_player_data(player.ally_code) %>
-      <%= link_to player.ally_code, player %>
-      <img src="<%= data['data']['portrait_image'] %>" alt="">
-      <li><%= data['data']['name'] %></li>
-      <li><%= data['data']['galactic_power'] %></li>
-      <li><%= data['data']['arena_leader_base_id'] %></li>
-    <% end %>
-  </ul>
-</section>
+<div class="max-w-3xl">
+  <section class="max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6">
+    <h1 class="text-3xl font-bold underline m-6">Hello Boyos</h1>
+    <h2 class="underline">Jar Jar's Above Ground Pool</h2>
+  </section>
+  <section>
+    <ul class="flex flex-wrap justify-center">
+      <% @players.each do |player| %>
+        <% data = player.get_player_data(player.ally_code) %>
+        <div class="bg-gray-500 text-white rounded shadow m-4 w-80 h-80">
+          <button class="m-2 bg-black rounded p-1">Ally Code: <%= link_to player.ally_code, player %> </button>
+          <img class="m-2 rounded" src="<%= data['data']['portrait_image'] %>" alt="">
+          <li class="m-2"><%= data['data']['name'] %></li>
+          <li class="m-2">GP: <%= data['data']['galactic_power'] %></li>
+          <li class="m-2">Arena Leader: <%= data['data']['arena_leader_base_id'] %></li>
+        </div>
+      <% end %>
+    </ul>
+  </section>
+</div>
