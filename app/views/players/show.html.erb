@@ -1,10 +1,10 @@
-<div class="flex max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6 justify-center">
+<div class="bg-gray-500 text-white flex max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6 justify-center">
   <% data = @player.get_player_data(@player.ally_code) %>
   <img class="m-2 rounded" src="<%= data['data']['portrait_image'] %>" alt="">
   <section>
     <h1><%= data['data']['name'] %></h1>
     <h2>Ally Code: <%= @player.ally_code %></h2>
-    <button class="rounded shadow p-2 m-4 bg-green-100">
+    <button class="text-black rounded shadow p-2 m-4 bg-green-100">
       <%= link_to "Remove Player", player_path(@player), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </button>
   </section>

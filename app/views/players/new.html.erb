@@ -1,4 +1,5 @@
-<h1>Add New Player to the Guild:</h1>
+<div class="bg-gray-500 text-white max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6 justify-center">
+<h1 class="mb-2">Add New Player to the Guild:</h1>
 
 <%= form_with(model: @player) do |f| %>
   <%#= @player.errors.full_messages.to_sentence %>
@@ -9,3 +10,4 @@
 
   <%= f.submit %>
 <% end %>
+</div>
