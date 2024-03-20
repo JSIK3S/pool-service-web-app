@@ -1,0 +1,9 @@
+<h1>Editing <%= @player.ally_code %></h1>
+
+<%= form_with(model: @player) do |f| %>
+  <div class="flex flex-col">
+    <%= f.label :lifetime_raid_tickets, class: "text-lg font-bold mb-1" %>
+    <%= f.number_field :lifetime_raid_tickets, autofocus: true, class: "px-3 py-2 border rounded-md shadow-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 focus:outline-none" %>
+  </div>
+  <%= f.submit "Update Raid Tickets", class: "px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none" %>
+<% end %>

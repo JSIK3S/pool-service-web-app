@@ -10,6 +10,10 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def edit
+    @player = Player.find(params[:id])
+  end
+
   def new
     @player = Player.new
   end
@@ -23,6 +27,15 @@ class PlayersController < ApplicationController
     end
   end
 
+  def update
+    @player = Player.find(params[:id])
+    if @player.update(player_params)
+      redirect_to @player, notice: "Player has been updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
@@ -30,11 +43,13 @@ class PlayersController < ApplicationController
   end
 
 
+
+
   private
 
   def player_params
     params.require(:player).
-      permit(:ally_code)
+      permit(:ally_code, :lifetime_raid_tickets)
   end
 
   # Ai generated code for the SWGOH Api call:
