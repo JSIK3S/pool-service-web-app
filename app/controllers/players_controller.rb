@@ -8,6 +8,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @boot_status = should_we_boot(@player)
   end
 
   def edit
@@ -42,9 +43,6 @@ class PlayersController < ApplicationController
     redirect_to players_url, status: :see_other, alert: "Player has been removed!"
   end
 
-
-
-
   private
 
   def player_params
@@ -52,18 +50,12 @@ class PlayersController < ApplicationController
       permit(:ally_code, :lifetime_raid_tickets)
   end
 
-  # Ai generated code for the SWGOH Api call:
-  # def show
-  #   ally_code = params[:ally_code]
-  #   uri = URI("https://swgoh.gg/api/player/#{ally_code}/")
-  #   response = Net::HTTP.get(uri)
-  #   json_response = JSON.parse(response)
-  #
-  #   if json_response['error']
-  #     flash[:alert] = "Player not found: #{json_response['error']}"
-  #     redirect_to root_path
-  #   else
-  #     @player = json_response
-  #   end
-  # end
+  def should_we_boot(player)
+    lifetime_raid_tickets = player.lifetime_raid_tickets
+    if player.get_daily_raid_tickets(player, lifetime_raid_tickets) < 200
+      'BOOT!'
+    else
+      'Keep!'
+    end
+  end
 end

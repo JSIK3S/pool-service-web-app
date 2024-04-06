@@ -5,13 +5,11 @@
     <h1 class="text-red-700"><%= data['data']['name'] %></h1>
     <h2 class="text-red-700">Ally Code: <%= @player.ally_code %></h2>
     <h3 class="text-red-700">Lifetime Raid Tickets: <%= @player.lifetime_raid_tickets %></h3>
+    <h3 class="text-red-700">Boot Status: <%= @boot_status %></h3>
   </section>
   <button class="rounded shadow p-2 m-4 bg-sky-500">
     <%= link_to "Update Raid Tickets", edit_player_path(@player) %>
   </button>
-<!--  <button class="text-black rounded shadow p-2 m-4 bg-green-100" onclick="<%# @player.should_we_boot(@player) %>">-->
-<!--    Boot?-->
-<!--  </button>-->
   <button class="rounded shadow p-2 m-4 bg-sky-500">
     <%= link_to "Remove Player", player_path(@player), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   </button>
