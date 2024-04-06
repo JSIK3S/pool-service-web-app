@@ -14,21 +14,22 @@ class Player < ApplicationRecord
     return nil
   end
 
-  def get_days_in_guild(player)
-    now = Date.today
-    date_joined = player.created_at.to_date
-    return (now - date_joined).to_i
-  end
+  # def get_days_in_guild(player)
+  #   now = Date.today
+  #   date_joined = player.created_at.to_date
+  #   return (now - date_joined).to_i
+  # end
 
-  def get_daily_raid_tickets(lifetime_raid_tickets)
-    lifetime_raid_tickets / get_days_in_guild(@player)
-  end
+  # def get_daily_raid_tickets(lifetime_raid_tickets)
+  #   lifetime_raid_tickets / get_days_in_guild(@player)
+  # end
 
-  def should_we_boot(lifetime_raid_tickets)
-    if get_daily_raid_tickets(lifetime_raid_tickets) < 200
-      return true
-    else
-      return false
-    end
-  end
+  # def should_we_boot(player)
+  #   lifetime_raid_tickets = player.lifetime_raid_tickets
+  #   if get_daily_raid_tickets(lifetime_raid_tickets) < 200
+  #     redirect_to @player, notice: "BOOT!"
+  #   else
+  #     redirect_to @player, notice: "Keep!"
+  #   end
+  # end
 end

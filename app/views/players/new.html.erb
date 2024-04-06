@@ -1,5 +1,5 @@
-<div class="bg-gray-500 text-red-500 max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6 justify-center">
-  <h1 class="mb-2 text-2xl font-bold text-center">Add New Player to the Guild:</h1>
+<div class="bg-gray-400 text-red-700 max-w-lg mx-auto text-center max-w-sm rounded overflow-hidden shadow-lg p-10 mb-6 justify-center">
+  <h1 class="mb-2 text-2xl font-bold text-center">Add Player to the Guild:</h1>
 
   <%= form_with(model: @player, class: "space-y-4") do |f| %>
     <%#= @player.errors.full_messages.to_sentence %>
@@ -10,6 +10,6 @@
       <%= f.text_field :ally_code, autofocus: true, class: "px-3 py-2 border rounded-md shadow-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 focus:outline-none" %>
     </div>
 
-    <%= f.submit "Add Player", class: "px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none" %>
+    <%= f.submit "Add Player", class: "px-6 py-2 bg-sky-500 text-white rounded-md hover:bg-blue-600 focus:outline-none" %>
   <% end %>
 </div>
